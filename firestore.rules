@@ -1,0 +1,181 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global Safety Net (Default Deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Reusable Hardened Primitives ---
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isVerifiedUser() {
+      return isSignedIn() && request.auth.token.email_verified == true;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() >= 1 && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isAdmin() {
+      return isVerifiedUser() && (
+        request.auth.token.email == 'aduragbemifagbemiro247@gmail.com' ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // --- Validation Blueprints ---
+    function isValidUserProfile(data, userId) {
+      return data.keys().hasAll(['uid', 'email', 'displayName', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['uid', 'email', 'displayName', 'phone', 'wooCustomerId', 'createdAt', 'updatedAt'])
+        && data.uid is string
+        && isValidId(data.uid)
+        && data.uid == userId
+        && data.email is string
+        && data.email.size() >= 3
+        && data.email.size() <= 254
+        && data.displayName is string
+        && data.displayName.size() >= 1
+        && data.displayName.size() <= 120
+        && (!('phone' in data) || (data.phone is string && data.phone.size() <= 24 && data.phone.matches('^(\\+234|0)?[789][01]\\d{8}$|^$')))
+        && (!('wooCustomerId' in data) || data.wooCustomerId is int)
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidSavedAddress(data) {
+      return data.keys().hasAll(['id', 'label', 'firstName', 'lastName', 'phone', 'street', 'city', 'state', 'country', 'isDefault', 'createdAt', 'updatedAt'])
+        && data.keys().hasOnly(['id', 'label', 'firstName', 'lastName', 'phone', 'street', 'city', 'state', 'country', 'isDefault', 'createdAt', 'updatedAt'])
+        && isValidId(data.id)
+        && data.label is string && data.label.size() >= 1 && data.label.size() <= 40
+        && data.firstName is string && data.firstName.size() >= 1 && data.firstName.size() <= 60
+        && data.lastName is string && data.lastName.size() >= 1 && data.lastName.size() <= 60
+        && data.phone is string && data.phone.size() >= 10 && data.phone.size() <= 20 && data.phone.matches('^(\\+234|0)[789][01]\\d{8}$')
+        && data.street is string && data.street.size() >= 4 && data.street.size() <= 200
+        && data.city is string && data.city.size() >= 2 && data.city.size() <= 80
+        && data.state is string && data.state.size() >= 2 && data.state.size() <= 50
+        && data.country is string && data.country.size() >= 2 && data.country.size() <= 4
+        && data.isDefault is bool
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidWishlistItem(data) {
+      return data.keys().hasAll(['productId', 'addedAt'])
+        && data.keys().hasOnly(['productId', 'addedAt'])
+        && isValidId(data.productId)
+        && data.productId.size() <= 64
+        && data.addedAt is timestamp;
+    }
+
+    function isValidAdminRecord(data, adminId) {
+      return data.keys().hasAll(['uid', 'email', 'role', 'grantedAt'])
+        && data.keys().hasOnly(['uid', 'email', 'role', 'grantedAt'])
+        && isValidId(data.uid)
+        && data.uid == adminId
+        && data.email is string && data.email.size() >= 3 && data.email.size() <= 254
+        && data.role in ['administrator', 'shop_manager']
+        && data.grantedAt is timestamp;
+    }
+
+    // --- Startup Connectivity Check ---
+    match /test/connection {
+      allow get: if true;
+      allow list, write: if false;
+    }
+
+    // --- Customer Profiles (PII Strictly Isolated) ---
+    match /users/{userId} {
+      allow get: if isValidId(userId) && (isOwner(userId) || isAdmin());
+      allow list: if isAdmin();
+
+      allow create: if isValidId(userId)
+        && isSignedIn()
+        && isOwner(userId)
+        && isValidUserProfile(incoming(), userId)
+        && incoming().createdAt == request.time
+        && incoming().updatedAt == request.time;
+
+      allow update: if isValidId(userId)
+        && isSignedIn()
+        && isValidUserProfile(incoming(), userId)
+        && incoming().uid == existing().uid
+        && incoming().createdAt == existing().createdAt
+        && incoming().updatedAt == request.time
+        && (
+          (isOwner(userId) && incoming().diff(existing()).affectedKeys().hasOnly(['displayName', 'phone', 'wooCustomerId', 'updatedAt'])) ||
+          isAdmin()
+        );
+
+      allow delete: if isValidId(userId) && isAdmin();
+
+      // --- Saved Nigerian Delivery Addresses ---
+      match /addresses/{addressId} {
+        allow get: if isValidId(userId) && isValidId(addressId) && (isOwner(userId) || isAdmin());
+        allow list: if isOwner(userId) || isAdmin();
+
+        allow create: if isValidId(userId)
+          && isValidId(addressId)
+          && isSignedIn()
+          && isOwner(userId)
+          && isValidSavedAddress(incoming())
+          && incoming().id == addressId
+          && incoming().createdAt == request.time
+          && incoming().updatedAt == request.time;
+
+        allow update: if isValidId(userId)
+          && isValidId(addressId)
+          && isSignedIn()
+          && isOwner(userId)
+          && isValidSavedAddress(incoming())
+          && incoming().id == existing().id
+          && incoming().createdAt == existing().createdAt
+          && incoming().updatedAt == request.time
+          && incoming().diff(existing()).affectedKeys().hasOnly(['label', 'firstName', 'lastName', 'phone', 'street', 'city', 'state', 'country', 'isDefault', 'updatedAt']);
+
+        allow delete: if isValidId(userId) && isValidId(addressId) && (isOwner(userId) || isAdmin());
+      }
+
+      // --- Saved Wishlist Items ---
+      match /wishlist/{productId} {
+        allow get: if isValidId(userId) && isValidId(productId) && (isOwner(userId) || isAdmin());
+        allow list: if isOwner(userId) || isAdmin();
+
+        allow create: if isValidId(userId)
+          && isValidId(productId)
+          && isSignedIn()
+          && isOwner(userId)
+          && isValidWishlistItem(incoming())
+          && incoming().productId == productId
+          && incoming().addedAt == request.time;
+
+        allow delete: if isValidId(userId) && isValidId(productId) && (isOwner(userId) || isAdmin());
+      }
+    }
+
+    // --- Admin Registry ---
+    match /admins/{adminId} {
+      allow get: if isValidId(adminId) && (isOwner(adminId) || isAdmin());
+      allow list: if isAdmin();
+      allow create: if isValidId(adminId) && isAdmin() && isValidAdminRecord(incoming(), adminId) && incoming().grantedAt == request.time;
+      allow update: if isValidId(adminId) && isAdmin() && isValidAdminRecord(incoming(), adminId) && incoming().uid == existing().uid && incoming().grantedAt == existing().grantedAt && incoming().diff(existing()).affectedKeys().hasOnly(['email', 'role']);
+      allow delete: if isValidId(adminId) && isAdmin();
+    }
+  }
+}

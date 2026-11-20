@@ -1,0 +1,1589 @@
+# MASTER DEVELOPMENT PROMPT
+## PREMIUM WOOCOMMERCE E-COMMERCE MARKETPLACE
+
+### ROLE & EXPERTISE
+
+Act as a senior full-stack software engineer, WordPress developer, WooCommerce architect, cybersecurity specialist, UI/UX designer, product designer, database architect, and e-commerce consultant with extensive experience building production-grade online shopping platforms.
+
+You are responsible for designing and developing a complete, professional, scalable, secure, and fully functional e-commerce website.
+
+Do not approach this project as a simple landing page, UI mockup, school project, or template customization. Treat it as a real commercial platform that will be used by customers to purchase products and by the store owner to manage the entire business.
+
+Think like a senior engineer. Plan the architecture before implementation. Prioritize functionality, security, performance, user experience, maintainability, and scalability.
+
+---
+
+# 1. PROJECT OBJECTIVE
+
+Build a premium, modern, fully functional e-commerce website and online marketplace inspired by the shopping experience, product organization, usability, and convenience of Jumia Nigeria.
+
+The platform must have its own unique identity, branding, design language, and user experience. Do not copy Jumia's logo, proprietary assets, exact layouts, or branding.
+
+The website must allow customers to:
+
+- Browse products without creating an account.
+- Search and discover products.
+- Explore product categories.
+- View detailed product information.
+- Add products to their shopping cart.
+- Save products to their wishlist.
+- Register or log in.
+- Sign in using Google.
+- Checkout securely.
+- Select available payment methods.
+- Track their orders.
+- View their order history.
+- Manage their account.
+
+The website owner must have complete control over the business through a secure, private, user-friendly administrator dashboard.
+
+The platform must use:
+
+- WordPress
+- WooCommerce
+- Firebase Authentication
+- Google Sign-In
+- Paystack
+- Flutterwave
+- Bank Transfer
+- Pay on Delivery
+
+All systems must be properly integrated rather than merely displayed visually.
+
+---
+
+# 2. PROJECT ARCHITECTURE — IMPORTANT
+
+The website MUST be built using a real WordPress and WooCommerce architecture.
+
+Do not create a disconnected React application with fake products, fake orders, fake payments, or simulated administrative functions.
+
+WordPress and WooCommerce must serve as the primary backend and commerce engine.
+
+Use:
+
+- WordPress for CMS, users, website management, content, and administration.
+- WooCommerce for products, product categories, inventory, carts, checkout, orders, coupons, shipping, taxes, and commerce functionality.
+- Firebase Authentication for Google authentication and customer identity verification.
+- WooCommerce-compatible payment integrations for Paystack and Flutterwave.
+- WooCommerce payment gateways for Bank Transfer and Cash on Delivery.
+- Custom development where required for integration, functionality, branding, and dashboard experience.
+
+If a custom frontend is developed, it must communicate properly with WordPress/WooCommerce through supported APIs and securely authenticated endpoints.
+
+Do not create a second independent product, order, inventory, or payment database that conflicts with WooCommerce.
+
+WooCommerce must remain the single source of truth for:
+
+- Products
+- Product prices
+- Stock
+- Orders
+- Order totals
+- Customer purchase records
+- Discounts
+- Payment statuses
+- Order statuses
+
+Use the WordPress REST API, WooCommerce API, custom WordPress plugins, secure server-side endpoints, or other appropriate WordPress architecture.
+
+Do not expose privileged WooCommerce API credentials to the browser.
+
+Do not assume the environment supports a feature. Verify the available tools, project structure, dependencies, and implementation constraints before proceeding.
+
+---
+
+# 3. BRAND IDENTITY AND VISUAL DESIGN
+
+Create a premium, modern, trustworthy online shopping experience.
+
+### Primary colors
+
+- Black: #111111
+- Gold: #C9A227
+- White: #FFFFFF
+- Light Gray: #F4F4F5
+- Medium Gray: #6B7280
+- Dark Gray: #292929
+
+### Design direction
+
+The website should feel:
+
+- Premium
+- Modern
+- Trustworthy
+- Sophisticated
+- Professional
+- Clean
+- Commercial
+- Easy to navigate
+- Visually attractive
+- Reliable for online shopping
+
+Gold should be used strategically for highlights, promotional elements, buttons, icons, badges, active states, and special offers.
+
+Do not overuse gold.
+
+Avoid excessive black backgrounds across the entire website. Product browsing should remain clean, bright, and easy to read. Use white and light-gray backgrounds for product sections, with black navigation and carefully placed gold accents.
+
+### Typography
+
+Use a professional typography system.
+
+Suggested fonts:
+
+- Headings: Poppins
+- Body: Inter
+
+Use consistent font sizes, font weights, line heights, spacing, and visual hierarchy.
+
+### UI/UX requirements
+
+Implement:
+
+- Consistent spacing.
+- Proper alignment.
+- Rounded corners used moderately.
+- High-quality product cards.
+- Professional iconography.
+- Subtle shadows.
+- Smooth transitions.
+- Responsive layouts.
+- Clear visual hierarchy.
+- Accessible color contrast.
+- Proper loading states.
+- Empty states.
+- Error states.
+- Success states.
+- Skeleton loaders where appropriate.
+- Clear buttons and feedback.
+
+Avoid:
+
+- Cheap template appearance.
+- Excessive animations.
+- Oversized empty spaces.
+- Random font combinations.
+- Excessive gold.
+- Unnecessary gradients.
+- Cluttered product cards.
+- Fake statistics.
+- Fake reviews.
+- Placeholder text.
+- Placeholder products in production.
+- Nonfunctional buttons.
+- Unnecessary popups.
+
+The final design must resemble a professionally designed retail platform.
+
+---
+
+# 4. RESPONSIVE DESIGN
+
+The website must be fully responsive and mobile-first.
+
+Support:
+
+- Mobile phones
+- Tablets
+- Laptops
+- Desktop monitors
+
+Mobile shopping must be especially optimized because many Nigerian customers shop using smartphones.
+
+Implement:
+
+- Mobile navigation.
+- Mobile menu.
+- Responsive search.
+- Mobile product grids.
+- Mobile-friendly product details.
+- Sticky mobile shopping controls where appropriate.
+- Responsive cart.
+- Responsive checkout.
+- Responsive admin dashboard.
+- Touch-friendly buttons.
+- Proper image scaling.
+- No horizontal overflow.
+
+The mobile experience must not simply be a compressed desktop layout. It must be designed specifically for mobile shopping.
+
+---
+
+# 5. PUBLIC WEBSITE STRUCTURE
+
+Create the following pages and sections.
+
+## A. Homepage
+
+The homepage must include:
+
+1. Announcement bar.
+2. Main navigation header.
+3. Logo.
+4. Search bar.
+5. Account icon.
+6. Wishlist icon.
+7. Shopping cart icon with live cart count.
+8. Category navigation.
+9. Hero section.
+10. Promotional banners.
+11. Featured categories.
+12. Flash deals or special offers.
+13. Featured products.
+14. Best-selling products.
+15. New arrivals.
+16. Recommended products.
+17. Promotional sections.
+18. Customer trust information.
+19. Newsletter subscription.
+20. Footer.
+
+The homepage must be designed to drive sales and product discovery.
+
+Do not use generic placeholder hero content. Create an attractive, professionally designed retail homepage with editable promotional content.
+
+## B. Shop page
+
+Create a professional shop page with:
+
+- Product grid.
+- Search.
+- Categories.
+- Filters.
+- Sorting.
+- Pagination or load-more functionality.
+- Product availability.
+- Price display.
+- Sale price.
+- Discount percentage where applicable.
+- Product ratings when genuine reviews exist.
+- Wishlist functionality.
+- Add-to-cart buttons.
+- Product quick view if practical.
+
+Sorting options should include:
+
+- Featured.
+- Newest.
+- Price: low to high.
+- Price: high to low.
+- Popularity.
+- Average rating when actual ratings exist.
+
+## C. Product categories
+
+Allow categories and subcategories.
+
+Examples:
+
+- Electronics
+- Fashion
+- Phones and Accessories
+- Computers
+- Home and Living
+- Beauty
+- Appliances
+- Groceries
+- Sports
+- Accessories
+- Other categories controlled by the administrator
+
+Categories must be dynamically managed from WordPress/WooCommerce.
+
+Do not hardcode the category list.
+
+## D. Product details page
+
+Each product must have:
+
+- Product title.
+- Main image.
+- Multiple product images.
+- Image gallery.
+- Product price.
+- Sale price.
+- Stock status.
+- Product description.
+- Short description.
+- Product SKU.
+- Product specifications.
+- Variations such as sizes, colors, and models where supported.
+- Quantity selector.
+- Add-to-cart button.
+- Buy-now button where appropriate.
+- Wishlist button.
+- Reviews and ratings.
+- Related products.
+- Delivery information.
+- Return information.
+- Product category.
+- Breadcrumb navigation.
+
+Product details must come from WooCommerce.
+
+## E. Search
+
+Implement a functional product search system.
+
+Search should support:
+
+- Product names.
+- Product categories.
+- Product tags.
+- Relevant product descriptions.
+
+Display useful search results and an appropriate empty state when no products match.
+
+## F. Shopping cart
+
+The shopping cart must support:
+
+- Guest customers.
+- Logged-in customers.
+- Add products.
+- Remove products.
+- Update quantities.
+- Calculate subtotals.
+- Calculate discounts.
+- Calculate delivery fees where applicable.
+- Calculate final totals.
+- Validate stock.
+- Display product variations.
+- Persist cart contents appropriately.
+
+The cart must be functional and connected to WooCommerce.
+
+Do not create a visual-only cart.
+
+## G. Wishlist
+
+Allow customers to save products for later.
+
+Wishlist functionality should:
+
+- Work for logged-in customers.
+- Optionally support temporary guest wishlists.
+- Allow adding and removing products.
+- Provide a way to move a product to the cart.
+- Display saved products in a dedicated wishlist page.
+
+---
+
+# 6. CUSTOMER AUTHENTICATION — FIREBASE
+
+Integrate Firebase Authentication.
+
+Required authentication methods:
+
+1. Google Sign-In.
+2. Email and password.
+3. Password reset.
+
+Use Firebase Authentication properly.
+
+### Google Sign-In flow
+
+1. Customer clicks Sign in with Google.
+2. Google authentication opens.
+3. Customer authenticates successfully.
+4. Firebase returns an authenticated identity.
+5. The server securely verifies the Firebase ID token.
+6. The system creates or retrieves the corresponding WordPress/WooCommerce customer account.
+7. The customer is securely authenticated into the website.
+8. Customer is redirected to the appropriate page.
+
+### Important requirements
+
+- Firebase authentication must be connected to WordPress user accounts.
+- Prevent duplicate accounts where possible.
+- Properly handle email account linking.
+- Verify Firebase tokens server-side.
+- Do not trust client-side authentication alone.
+- Do not allow Firebase login to grant administrator privileges.
+- Only authorized administrator accounts can access administrative functionality.
+
+### Email and password
+
+Implement:
+
+- Registration.
+- Login.
+- Password reset.
+- Validation.
+- Clear error messages.
+- Secure session handling.
+
+Do not expose Firebase secrets or privileged credentials.
+
+Use environment variables or secure configuration mechanisms for Firebase credentials and configuration where appropriate.
+
+---
+
+# 7. CUSTOMER ACCOUNT DASHBOARD
+
+Create a professional customer dashboard.
+
+The dashboard must include:
+
+- Profile.
+- Personal information.
+- Email address.
+- Phone number.
+- Saved addresses.
+- Order history.
+- Order details.
+- Order status.
+- Wishlist.
+- Password/account security.
+- Logout.
+
+Customers must only be able to view and modify their own information.
+
+Never allow a customer to access another customer's orders by changing URLs, order IDs, or request parameters.
+
+Implement server-side authorization checks.
+
+---
+
+# 8. PRIVATE ADMIN DASHBOARD
+
+Create a dedicated, professional administrator dashboard.
+
+Preferred admin URL:
+
+https://YOURDOMAIN.com/admin
+
+This URL must be configurable and implemented properly.
+
+The admin dashboard must not be accessible to ordinary customers.
+
+Do not rely on hiding the admin menu or changing the URL as security.
+
+Implement:
+
+- Server-side authorization.
+- WordPress role/capability checks.
+- Secure administrator authentication.
+- Protected API endpoints.
+- Session validation.
+- Access-denied handling.
+- Administrator-only actions.
+
+Unauthorized visitors must never be able to access administrative data or execute administrative operations.
+
+The dashboard should have a premium black, gold, white, and gray design.
+
+## Admin dashboard navigation
+
+Create the following sidebar menu:
+
+1. Dashboard
+2. Products
+3. Categories
+4. Inventory
+5. Orders
+6. Customers
+7. Payments
+8. Coupons
+9. Reviews
+10. Reports and Analytics
+11. Store Settings
+12. Payment Settings
+13. Shipping Settings
+14. Notifications
+15. Security
+16. Logout
+
+The administrator should be able to navigate between these sections easily.
+
+---
+
+# 9. ADMIN DASHBOARD ANALYTICS
+
+Display real WooCommerce data.
+
+Dashboard cards:
+
+- Total revenue.
+- Today's revenue.
+- This month's revenue.
+- Total orders.
+- Pending orders.
+- Processing orders.
+- Completed orders.
+- Cancelled orders.
+- Total products.
+- Total customers.
+- Low-stock products.
+
+Include charts for:
+
+- Revenue over time.
+- Orders over time.
+- Best-selling products.
+- Sales by category.
+- Payment method usage.
+
+All statistics and charts must use real backend data.
+
+Do not fabricate analytics.
+
+If no sales data exists, display an appropriate empty state instead of fake values.
+
+Include a recent orders table with:
+
+- Order number.
+- Customer.
+- Date.
+- Amount.
+- Payment method.
+- Payment status.
+- Order status.
+- Action.
+
+---
+
+# 10. PRODUCT MANAGEMENT
+
+The administrator must have full control over products.
+
+## Product creation
+
+Allow the admin to:
+
+- Create a product.
+- Enter product name.
+- Add short description.
+- Add detailed description.
+- Upload main image.
+- Upload multiple gallery images.
+- Set product price.
+- Set sale price.
+- Set SKU.
+- Set stock quantity.
+- Enable or disable stock management.
+- Set low-stock threshold.
+- Assign categories.
+- Add tags.
+- Set product status.
+- Mark as featured.
+- Add product specifications.
+- Create variable products.
+- Add variations.
+- Manage sizes.
+- Manage colors.
+- Manage variation prices.
+- Manage variation stock.
+- Set weight and dimensions if needed.
+
+## Product editing
+
+Allow the administrator to edit all relevant product information.
+
+## Product deletion
+
+Allow deletion with a confirmation prompt.
+
+Where appropriate, support archiving or unpublishing products instead of permanently deleting them.
+
+## Inventory
+
+Create an inventory management system that displays:
+
+- Product.
+- SKU.
+- Stock quantity.
+- Stock status.
+- Product price.
+- Low-stock warning.
+- Out-of-stock warning.
+
+Allow authorized administrators to update inventory.
+
+All product and inventory changes must be saved to WooCommerce.
+
+---
+
+# 11. ORDER MANAGEMENT
+
+Create a complete order management system.
+
+The administrator must be able to:
+
+- View all orders.
+- Search orders.
+- Filter orders.
+- View order details.
+- View customers.
+- View products purchased.
+- View quantities.
+- View delivery details.
+- View payment methods.
+- View payment status.
+- View order notes.
+- Update order status.
+- Cancel orders.
+- Manage refunds where supported.
+- Print order invoices.
+- Print receipts.
+- Export orders where appropriate.
+
+## Order statuses
+
+Support appropriate WooCommerce order statuses, including:
+
+- Pending payment.
+- Processing.
+- On hold.
+- Completed.
+- Cancelled.
+- Failed.
+- Refunded.
+
+Add delivery-related status management where appropriate, without breaking WooCommerce's core order status logic.
+
+Allow the admin to record delivery information such as:
+
+- Courier.
+- Tracking number.
+- Delivery notes.
+- Delivery status.
+
+---
+
+# 12. PAYMENT GATEWAY ARCHITECTURE
+
+This is a critical requirement.
+
+Create an administrator-controlled payment settings system.
+
+The website must support the following payment methods:
+
+1. Paystack.
+2. Flutterwave.
+3. Bank Transfer.
+4. Pay on Delivery.
+
+Each payment method must be independently configurable.
+
+The administrator must be able to enable or disable payment methods from the admin dashboard without modifying code.
+
+The available payment methods at checkout must automatically reflect the active settings.
+
+If a payment method is disabled, it must not appear to customers.
+
+Do not simulate payments.
+
+Do not automatically mark an order paid without verifying the actual payment.
+
+---
+
+# 13. PAYSTACK INTEGRATION
+
+Integrate Paystack using a trusted WooCommerce Paystack gateway/plugin or a properly implemented server-side gateway integration.
+
+The integration must support:
+
+- Test mode.
+- Live mode.
+- Public key configuration where required.
+- Secret key configuration.
+- Payment initialization.
+- Payment reference generation.
+- Checkout redirection or supported payment flow.
+- Payment verification.
+- Webhook verification.
+- Successful payment handling.
+- Failed payment handling.
+- Cancelled payment handling.
+- Order status synchronization.
+
+The administrator must be able to:
+
+- Enable Paystack.
+- Disable Paystack.
+- Configure test/live mode.
+- Configure credentials securely.
+- View relevant payment status information.
+
+Secret keys must never be exposed in frontend JavaScript, public APIs, browser storage, or client-side source code.
+
+Use verified payment events and secure callbacks.
+
+Never trust a customer-provided success URL as proof of payment.
+
+---
+
+# 14. FLUTTERWAVE INTEGRATION
+
+Integrate Flutterwave using a trusted WooCommerce Flutterwave gateway or a properly implemented secure gateway integration.
+
+Required functionality:
+
+- Enable/disable Flutterwave.
+- Test mode.
+- Live mode.
+- Secure credential configuration.
+- Payment initialization.
+- Payment reference.
+- Payment verification.
+- Webhook verification.
+- Successful payments.
+- Failed payments.
+- Cancelled payments.
+- WooCommerce order synchronization.
+
+Flutterwave must be a separate payment method from Paystack.
+
+The customer must be able to select whichever methods are enabled by the store administrator.
+
+Do not expose Flutterwave secret keys.
+
+Do not simulate successful payments.
+
+---
+
+# 15. BANK TRANSFER
+
+Create a configurable Bank Transfer payment method.
+
+The administrator must be able to manage:
+
+- Enable/disable.
+- Bank name.
+- Account name.
+- Account number.
+- Instructions.
+- Payment deadline.
+- Payment confirmation requirements.
+
+When a customer chooses Bank Transfer:
+
+1. Create the WooCommerce order.
+2. Set an appropriate pending/on-hold status.
+3. Display the bank account details.
+4. Display the order reference.
+5. Display the payment instructions.
+6. Allow proof-of-payment upload if implemented.
+7. Notify the administrator.
+8. Allow the administrator to verify the payment manually.
+9. Allow the administrator to confirm payment.
+10. Update the order status appropriately.
+
+A bank transfer must not automatically become paid.
+
+Uploaded receipts must not automatically be treated as proof of payment.
+
+The administrator must independently confirm that the money has been received.
+
+---
+
+# 16. PAY ON DELIVERY
+
+Implement Cash on Delivery / Pay on Delivery as a configurable WooCommerce payment method.
+
+Admin settings:
+
+- Enable/disable.
+- Delivery availability.
+- Minimum order value if needed.
+- Maximum order value if needed.
+- Supported locations.
+- Restricted products.
+- Additional COD charges if applicable.
+- Instructions.
+
+When customers select Pay on Delivery:
+
+- Create the order.
+- Record the COD payment method.
+- Mark the order as unpaid.
+- Do not mark it as paid.
+- Notify the administrator.
+- Send confirmation to the customer.
+- Allow order processing.
+- Allow delivery status updates.
+- Allow payment confirmation after the customer pays.
+
+Do not treat a COD order as a completed payment.
+
+---
+
+# 17. PAYMENT SETTINGS IN ADMIN DASHBOARD
+
+Create a dedicated section:
+
+ADMIN DASHBOARD → SETTINGS → PAYMENT METHODS
+
+The administrator must be able to see all four payment methods.
+
+For each method, include:
+
+- Payment method name.
+- Logo/icon where appropriate.
+- Description.
+- Enable/disable switch.
+- Configuration settings.
+- Save button.
+- Status indicator.
+- Test/live mode where applicable.
+- Secure credential management.
+
+Example:
+
+PAYMENT METHODS
+
+Paystack
+[Enabled/Disabled]
+
+Flutterwave
+[Enabled/Disabled]
+
+Bank Transfer
+[Enabled/Disabled]
+
+Pay on Delivery
+[Enabled/Disabled]
+
+The settings must be connected to the actual WooCommerce payment gateways.
+
+Do not create a visual toggle that only changes frontend appearance without changing the real payment gateway configuration.
+
+When the administrator changes a payment setting:
+
+1. Validate the setting.
+2. Save it securely.
+3. Update the real gateway configuration.
+4. Refresh available checkout payment methods.
+5. Display a success or error message.
+
+All payment configuration must persist after refreshing the website.
+
+---
+
+# 18. CHECKOUT SYSTEM
+
+Create a professional, frictionless checkout.
+
+Support guest checkout.
+
+Allow optional account creation during checkout.
+
+Checkout fields should include:
+
+- First name.
+- Last name.
+- Email.
+- Phone number.
+- Address.
+- City.
+- State.
+- Country.
+- Delivery instructions.
+
+The checkout should include:
+
+- Order summary.
+- Product quantities.
+- Product variations.
+- Subtotal.
+- Discounts.
+- Shipping charges.
+- Total.
+- Payment methods.
+- Terms and conditions.
+- Place order button.
+
+Use Nigeria as the primary target market.
+
+Support Nigerian addresses and states.
+
+Use Nigerian Naira (₦) as the primary store currency.
+
+The system must calculate totals using WooCommerce and not client-side-only calculations.
+
+Validate checkout data on the server.
+
+---
+
+# 19. SHIPPING AND DELIVERY
+
+Create a configurable shipping system.
+
+Allow the administrator to manage:
+
+- Shipping zones.
+- Delivery fees.
+- Local delivery.
+- State delivery.
+- Nationwide delivery.
+- Pickup options where applicable.
+- Free shipping rules.
+- Shipping restrictions.
+
+Delivery charges must be calculated correctly at checkout.
+
+The administrator must be able to modify shipping rules without coding.
+
+Display clear delivery information to customers.
+
+Do not invent delivery estimates when no shipping rules are configured.
+
+---
+
+# 20. CUSTOMER NOTIFICATIONS
+
+Create a notification system using WordPress/WooCommerce email functionality.
+
+Notifications should include:
+
+### Customer notifications
+
+- Account registration.
+- Password reset.
+- Order confirmation.
+- Payment confirmation.
+- Payment failure.
+- Order processing.
+- Order shipment.
+- Order delivery.
+- Order cancellation.
+- Refund updates.
+
+### Administrator notifications
+
+- New order.
+- New customer.
+- Payment received.
+- Failed payment.
+- Bank transfer awaiting confirmation.
+- Pay on Delivery order.
+- Low stock.
+- Out-of-stock product.
+
+Emails must be professionally designed and branded.
+
+Do not send fake or duplicate notifications.
+
+Allow the administrator to configure relevant notification settings.
+
+---
+
+# 21. REVIEWS AND RATINGS
+
+Implement a product review system.
+
+Customers should be able to:
+
+- Submit product reviews.
+- Rate products.
+- Write comments.
+- View approved reviews.
+
+The administrator should be able to:
+
+- Moderate reviews.
+- Approve reviews.
+- Reject reviews.
+- Remove inappropriate reviews.
+
+Where possible, support verified-purchase labels.
+
+Never generate fake customer reviews or fake product ratings.
+
+---
+
+# 22. COUPONS AND DISCOUNTS
+
+Implement WooCommerce coupon functionality.
+
+Allow administrators to create:
+
+- Percentage discounts.
+- Fixed cart discounts.
+- Fixed product discounts.
+- Expiry dates.
+- Usage restrictions.
+- Minimum spend.
+- Maximum spend.
+- Product restrictions.
+- Category restrictions.
+- Usage limits.
+
+Customers should be able to enter coupon codes at checkout.
+
+Coupon calculations must use WooCommerce.
+
+---
+
+# 23. ADMIN STORE SETTINGS
+
+Create a dedicated store settings area.
+
+Allow administrators to manage:
+
+- Store name.
+- Logo.
+- Favicon.
+- Store email.
+- Phone number.
+- WhatsApp contact.
+- Address.
+- Currency.
+- Store description.
+- Social media links.
+- Announcement bar.
+- Promotional banners.
+- Homepage content.
+- Featured categories.
+- Featured products.
+- Terms and conditions.
+- Privacy policy.
+- Refund policy.
+- Return policy.
+- Shipping policy.
+
+Where possible, content should be editable through WordPress or a custom settings interface.
+
+Do not require source code edits for ordinary store content changes.
+
+---
+
+# 24. ADMIN USER AND PERMISSION MANAGEMENT
+
+The administrator must have full control over the store.
+
+Implement secure role-based access.
+
+Roles may include:
+
+- Administrator.
+- Shop Manager.
+- Customer.
+- Editor or Content Manager where required.
+
+The administrator must be able to manage users and permissions appropriately.
+
+Only authorized administrators should be able to:
+
+- Manage payment gateways.
+- View sensitive payment configuration.
+- Edit products.
+- Delete products.
+- View customer records.
+- Manage orders.
+- Access store analytics.
+- Change store settings.
+- Access the admin dashboard.
+
+Do not grant administrative privileges to users simply because they have a Google account.
+
+---
+
+# 25. SECURITY
+
+Security is mandatory.
+
+Implement and follow WordPress and WooCommerce security best practices.
+
+Required:
+
+- HTTPS.
+- Secure authentication.
+- Server-side role checks.
+- Secure admin access.
+- Input validation.
+- Output sanitization.
+- CSRF protection.
+- Nonce verification for relevant WordPress actions.
+- SQL injection prevention.
+- XSS prevention.
+- Secure file uploads.
+- Rate limiting where appropriate.
+- Secure password handling.
+- Protected API endpoints.
+- Payment webhook verification.
+- Payment signature verification.
+- Secure session handling.
+- Privacy protection.
+- Secure error handling.
+- Audit logging for important administrative actions.
+
+Never expose:
+
+- Paystack secret keys.
+- Flutterwave secret keys.
+- WordPress administrator credentials.
+- Database credentials.
+- Private Firebase service credentials.
+- WooCommerce privileged API credentials.
+
+Do not store sensitive credentials in public JavaScript, frontend source code, public GitHub repositories, or browser storage.
+
+Do not trust frontend role checks.
+
+Every sensitive operation must be validated on the backend.
+
+---
+
+# 26. SEO
+
+Optimize the website for search engines.
+
+Implement:
+
+- SEO-friendly URLs.
+- Page titles.
+- Meta descriptions.
+- Product structured data.
+- Breadcrumbs.
+- Product schema where supported.
+- Open Graph metadata.
+- Social sharing previews.
+- Canonical URLs.
+- XML sitemap compatibility.
+- Alt text for product images.
+- Proper heading hierarchy.
+- Indexable category pages.
+- Indexable product pages.
+
+Do not create duplicate URLs unnecessarily.
+
+Do not add fake structured data or fake ratings.
+
+---
+
+# 27. PERFORMANCE
+
+The website must be optimized for performance.
+
+Implement:
+
+- Optimized images.
+- Responsive images.
+- Lazy loading.
+- Efficient scripts.
+- CSS optimization.
+- Caching compatibility.
+- Reduced unnecessary plugins.
+- Minimal unnecessary animation.
+- Database-efficient queries.
+- Pagination.
+- Avoid unnecessary API calls.
+- Proper loading states.
+
+The website must be usable on slow Nigerian mobile networks.
+
+Do not load large unnecessary libraries.
+
+---
+
+# 28. ACCESSIBILITY
+
+Follow accessibility best practices.
+
+Include:
+
+- Keyboard navigation.
+- Proper labels.
+- Accessible forms.
+- Screen-reader-friendly controls.
+- Alt text.
+- Color contrast.
+- Visible focus indicators.
+- Accessible modal behavior.
+- Clear error messages.
+
+Do not rely only on color to communicate important information.
+
+---
+
+# 29. ADMIN DASHBOARD UI/UX
+
+The admin dashboard must look and feel like a modern professional business application.
+
+Design:
+
+- Sidebar navigation.
+- Top navigation bar.
+- Search.
+- Notification area.
+- Profile menu.
+- Dashboard cards.
+- Tables.
+- Filters.
+- Pagination.
+- Forms.
+- Confirmation dialogs.
+- Charts.
+- Responsive layout.
+
+Use black and dark gray for primary administrative elements, gold for highlights, and white/light gray for content areas.
+
+The admin dashboard must not feel like an ordinary WordPress default dashboard unless WordPress administrative functions are required.
+
+Where a custom dashboard is built, connect it to real WordPress and WooCommerce functionality.
+
+---
+
+# 30. FUNCTIONAL REQUIREMENTS
+
+Every button and control must perform its intended action.
+
+Examples:
+
+- Search must search.
+- Add to cart must add the selected product.
+- Remove must remove an item.
+- Quantity controls must update quantities.
+- Checkout must process the order.
+- Google Sign-In must authenticate.
+- Save must save.
+- Edit must edit.
+- Delete must delete after confirmation.
+- Payment toggles must update actual gateway availability.
+- Product uploads must persist.
+- Order status updates must persist.
+- Dashboard statistics must reflect real data.
+- Logout must terminate the session.
+
+Never use decorative controls that appear functional but do nothing.
+
+Never simulate backend functionality without clearly identifying it as a temporary development mock.
+
+---
+
+# 31. DATABASE AND DATA MANAGEMENT
+
+Use WordPress and WooCommerce's existing database structure wherever appropriate.
+
+Do not unnecessarily recreate:
+
+- Products.
+- Orders.
+- Customers.
+- Inventory.
+- Payment statuses.
+- Product categories.
+
+If custom tables are necessary, use proper database design, validation, migration procedures, and documentation.
+
+Ensure:
+
+- Referential integrity.
+- Consistent data.
+- Proper handling of product variations.
+- Secure customer information.
+- Correct order totals.
+- Proper stock management.
+- Reliable payment status synchronization.
+
+---
+
+# 32. DEVELOPMENT PROCESS
+
+Work in the following phases.
+
+## PHASE 1 — ANALYSIS
+
+Before writing code:
+
+1. Analyze the entire project.
+2. Identify all requirements.
+3. Define the system architecture.
+4. Determine the necessary WordPress components.
+5. Determine the necessary WooCommerce integrations.
+6. Identify Firebase integration requirements.
+7. Identify payment gateway requirements.
+8. Identify security risks.
+9. Define the database architecture.
+10. Define the UI/UX system.
+
+Do not skip architecture planning.
+
+## PHASE 2 — DESIGN SYSTEM
+
+Create:
+
+- Color palette.
+- Typography.
+- Spacing system.
+- Button styles.
+- Form styles.
+- Cards.
+- Navigation.
+- Tables.
+- Icons.
+- Mobile breakpoints.
+
+Maintain consistent design throughout the entire website.
+
+## PHASE 3 — FRONTEND DEVELOPMENT
+
+Develop:
+
+- Homepage.
+- Header.
+- Navigation.
+- Product categories.
+- Shop.
+- Search.
+- Product details.
+- Wishlist.
+- Cart.
+- Checkout.
+- Authentication.
+- Customer dashboard.
+
+## PHASE 4 — WORDPRESS AND WOOCOMMERCE INTEGRATION
+
+Connect the frontend to real WordPress and WooCommerce functionality.
+
+Ensure that:
+
+- Products load from WooCommerce.
+- Categories load from WooCommerce.
+- Prices come from WooCommerce.
+- Stock comes from WooCommerce.
+- Orders are created in WooCommerce.
+- Customers are stored correctly.
+- Order statuses synchronize correctly.
+
+## PHASE 5 — FIREBASE AUTHENTICATION
+
+Implement Firebase.
+
+Verify:
+
+- Google Sign-In.
+- Email registration.
+- Login.
+- Password recovery.
+- Token verification.
+- WordPress user synchronization.
+- Session security.
+- Role restrictions.
+
+## PHASE 6 — ADMIN DASHBOARD
+
+Build:
+
+- Dashboard.
+- Product management.
+- Category management.
+- Inventory.
+- Order management.
+- Customer management.
+- Analytics.
+- Payment settings.
+- Shipping settings.
+- Store settings.
+
+Connect every section to actual backend data.
+
+## PHASE 7 — PAYMENT INTEGRATION
+
+Implement and test:
+
+- Paystack.
+- Flutterwave.
+- Bank Transfer.
+- Pay on Delivery.
+
+Test:
+
+- Payment success.
+- Payment failure.
+- Cancelled payment.
+- Duplicate callbacks.
+- Invalid callbacks.
+- Webhook verification.
+- Order status updates.
+- Payment gateway enable/disable functionality.
+
+## PHASE 8 — TESTING
+
+Test the complete customer journey.
+
+Test the administrator journey.
+
+Test mobile and desktop.
+
+Test guest checkout.
+
+Test Google Sign-In.
+
+Test cart persistence.
+
+Test inventory.
+
+Test orders.
+
+Test payment methods.
+
+Test authorization.
+
+Test unauthorized access.
+
+Test all important forms.
+
+Test error states.
+
+Test product image uploads.
+
+Test order status updates.
+
+## PHASE 9 — DEPLOYMENT
+
+Provide deployment documentation covering:
+
+- Domain configuration.
+- Hosting requirements.
+- WordPress installation.
+- WooCommerce installation.
+- Plugin installation.
+- Firebase setup.
+- Google OAuth configuration.
+- Paystack configuration.
+- Flutterwave configuration.
+- HTTPS.
+- Database backups.
+- Security.
+- Environment configuration.
+- Testing.
+- Launch checklist.
+
+---
+
+# 33. CODE QUALITY
+
+Write clean, maintainable, production-oriented code.
+
+Requirements:
+
+- Modular architecture.
+- Reusable components.
+- Meaningful naming.
+- Separation of concerns.
+- Proper error handling.
+- No unnecessary duplication.
+- No unnecessary dependencies.
+- Secure coding practices.
+- Documentation.
+- Maintainability.
+
+Do not write the entire project as one enormous file.
+
+Do not use hardcoded sample data as the final database.
+
+Do not use local mock arrays as the production source of products, customers, orders, payments, or analytics.
+
+Do not create fake backend endpoints.
+
+Do not leave critical functionality unfinished without explicitly identifying it.
+
+---
+
+# 34. IMPLEMENTATION HONESTY
+
+This is a real e-commerce project.
+
+Never claim:
+
+- Firebase is connected when it is not.
+- Google authentication works when it has not been tested.
+- Paystack is functional when credentials or integration are missing.
+- Flutterwave is functional when credentials or integration are missing.
+- Products are saved to WooCommerce when they are only stored locally.
+- Orders are real when they are simulated.
+- Payment verification is implemented when it is not.
+- Admin security is complete when it is only frontend protection.
+
+If a feature requires external credentials, a WordPress installation, a hosting environment, a plugin, a webhook, or administrator configuration, explain exactly what is required.
+
+Use test mode during development.
+
+Do not use real customer payments during initial testing.
+
+---
+
+# 35. FINAL DELIVERABLES
+
+The final project must include:
+
+1. A professional storefront.
+2. Responsive homepage.
+3. Shop page.
+4. Product category pages.
+5. Product details pages.
+6. Product search.
+7. Cart.
+8. Wishlist.
+9. Checkout.
+10. Customer registration and login.
+11. Firebase Google Sign-In.
+12. Customer dashboard.
+13. Private administrator dashboard at `/admin`.
+14. Product management.
+15. Inventory management.
+16. Order management.
+17. Customer management.
+18. Sales analytics.
+19. Paystack.
+20. Flutterwave.
+21. Bank Transfer.
+22. Pay on Delivery.
+23. Admin-controlled payment activation/deactivation.
+24. Shipping configuration.
+25. Coupons.
+26. Product reviews.
+27. Email notifications.
+28. Security implementation.
+29. SEO optimization.
+30. Deployment documentation.
+31. Testing checklist.
+32. Installation and configuration instructions.
+
+---
+
+# 36. FINAL INSTRUCTION TO THE AI DEVELOPER
+
+Build this project as if you are developing a real online shopping business that will serve customers and process actual orders.
+
+Prioritize the quality of the user experience, the integrity of the backend, security, maintainability, and the reliability of the payment system.
+
+Do not rush into generating random code.
+
+First analyze and establish the architecture. Then develop systematically.
+
+Do not produce a disconnected frontend mockup.
+
+Do not substitute fake functionality for real integrations.
+
+Do not leave buttons nonfunctional.
+
+Do not compromise security for convenience.
+
+Do not expose credentials.
+
+Do not invent successful payment transactions.
+
+Do not create a system that depends on the customer accessing the WordPress administrator dashboard.
+
+The public storefront must be clean, premium, fast, and easy to use.
+
+The administrator dashboard must be private, powerful, and easy to operate.
+
+The payment system must be configurable from the admin dashboard.
+
+The products, orders, stock, and customers must be properly managed by WooCommerce.
+
+The website must be designed with the Nigerian e-commerce market in mind, including Nigerian Naira pricing, Nigerian customer phone numbers, local addresses, delivery requirements, bank transfers, and Pay on Delivery.
+
+If any implementation decision is unclear, choose the most secure, maintainable, professional, and scalable approach consistent with WordPress and WooCommerce.
+
+The ultimate goal is to create a premium, trustworthy, fully functional, production-ready e-commerce platform that can grow into a serious online business.
+
+BEGIN BY ANALYZING THE PROJECT REQUIREMENTS AND ESTABLISHING THE IMPLEMENTATION ARCHITECTURE. THEN PROCEED TO DEVELOPMENT.

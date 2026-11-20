@@ -1,0 +1,8 @@
+{
+  "name": "Diamond Market",
+  "description": "Diamond Market — Luxury Nigerian Shoes, Wears & Fashion Boutique based in Ogbomoso, Oyo State, Nigeria. Featuring curated footwear, clothing, product-specific return policies, WhatsApp support, Firebase Auth, and WooCommerce-synced checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
